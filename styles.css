@@ -1,6 +1,7 @@
 body {
     min-height: 100vh;
     margin: 0;
+    cursor: none;
 }
 
 .cursor {
@@ -10,7 +11,17 @@ body {
     pointer-events: none;
 }
 
-.cursor path {
+.cursor-spark {
+    opacity: 0;
+    transition: opacity 0.225s ease-in, stroke 0.255s ease-in;
+}
+
+.cursor-spark.is-active {
+    opacity: 1;
+    transition: opacity 0s, stroke 0.255s ease-in;;
+}
+
+.cursor-main {
     transition: fill 0.255s ease-in;
 }
 
