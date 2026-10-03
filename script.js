@@ -16,7 +16,9 @@ const mouse = {
 } // здесь храню координаты мыши
 
 const updateCursor = () => {
-    
+    const translate = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
+
+    cursor.style.transform = translate;
 }
 
 const updateCoordinates = (evt) => {
@@ -24,11 +26,11 @@ const updateCoordinates = (evt) => {
     mouse.y = evt.clientY;
 } // сохраняю координаты мыши
 
-window.addEventListener('mousemove', updateCoursor); // слежу за передвижением мыши
+window.addEventListener('mousemove', updateCoordinates); // слежу за передвижением мыши
 
 const requestAnimationHandler = () => {
   updateCursor();
-  requestAnimationFrame(requestAnimationHandler);
+  requestAnimationFrame(requestAnimationHandler); // здесь функция прослойка нужна если вдруг появится еще одна анимация
 }
 
 requestAnimationFrame(requestAnimationHandler);
