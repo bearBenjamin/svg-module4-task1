@@ -15,9 +15,20 @@ const mouse = {
     y: null
 } // здесь храню координаты мыши
 
-const updateCoursor = (evt) => {
+const updateCursor = () => {
+    
+}
+
+const updateCoordinates = (evt) => {
     mouse.x = evt.clientX;
     mouse.y = evt.clientY;
 } // сохраняю координаты мыши
 
 window.addEventListener('mousemove', updateCoursor); // слежу за передвижением мыши
+
+const requestAnimationHandler = () => {
+  updateCursor();
+  requestAnimationFrame(requestAnimationHandler);
+}
+
+requestAnimationFrame(requestAnimationHandler);
