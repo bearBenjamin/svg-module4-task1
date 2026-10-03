@@ -1,5 +1,5 @@
 const PARAMS = {
-
+    speed: 0.2
 }
 
 const cursor = document.querySelector('.cursor');
@@ -15,7 +15,18 @@ const mouse = {
     y: null
 } // здесь храню координаты мыши
 
+const pos = {
+  x: null,
+  y: null
+}
+
 const updateCursor = () => {
+    const diffX = Math.round(mouse.x - pos.x);
+    const diffY = Math.round(mouse.y - pos.y);
+
+    pos.x = Math.round(pos.x + diffX * PARAMS.speed);
+    pos.y = Math.round(pos.y + diffY * PARAMS.speed);
+
     const translate = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
 
     cursor.style.transform = translate;
